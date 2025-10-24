@@ -8,7 +8,7 @@ import { Button } from './ui/button';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Separator } from './ui/separator';
 import { Settings2, Shield, Scan, Save } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 
 export function Settings() {
   const [sensitivity, setSensitivity] = useState([65]);
@@ -38,80 +38,6 @@ export function Settings() {
           <p className="text-xs text-neutral-400 italic">"Set the laws by which betrayal shall be judged."</p>
         </motion.div>
 
-        {/* Detection Settings */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-        >
-          <Card className="p-4 bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border-neutral-800">
-            <div className="flex items-center gap-2 mb-4">
-              <Scan className="w-4 h-4 text-red-400" />
-              <h3 className="text-red-200 text-sm">Threat Detection</h3>
-            </div>
-
-            <div className="space-y-4">
-              {/* Sensitivity Slider */}
-              <div>
-                <div className="flex justify-between mb-2">
-                  <Label className="text-neutral-300 text-sm">Detection Sensitivity</Label>
-                  <span className="text-xs text-red-400">{sensitivity[0]}%</span>
-                </div>
-                <Slider
-                  value={sensitivity}
-                  onValueChange={setSensitivity}
-                  max={100}
-                  step={1}
-                  className="mb-1"
-                />
-                <p className="text-[10px] text-neutral-500">
-                  Higher sensitivity detects more threats but may increase false positives.
-                </p>
-              </div>
-
-              <Separator className="bg-neutral-800" />
-
-              {/* AI Mode */}
-              <div>
-                <Label className="text-neutral-300 mb-2 block text-sm">AI Detection Mode</Label>
-                <RadioGroup value={aiMode} onValueChange={setAiMode}>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2 p-2.5 rounded-lg bg-neutral-950/50 border border-neutral-800 hover:border-red-900/50 transition-colors">
-                      <RadioGroupItem value="keyword" id="keyword" />
-                      <div className="flex-1">
-                        <Label htmlFor="keyword" className="text-neutral-300 cursor-pointer text-xs">
-                          Keyword-Only
-                        </Label>
-                        <p className="text-[10px] text-neutral-500">Fast detection</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-2 p-2.5 rounded-lg bg-neutral-950/50 border border-neutral-800 hover:border-red-900/50 transition-colors">
-                      <RadioGroupItem value="nlp" id="nlp" />
-                      <div className="flex-1">
-                        <Label htmlFor="nlp" className="text-neutral-300 cursor-pointer text-xs">
-                          NLP-Anomaly Detection
-                        </Label>
-                        <p className="text-[10px] text-neutral-500">Advanced analysis</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center space-x-2 p-2.5 rounded-lg bg-neutral-950/50 border border-red-900/50 hover:border-red-800/70 transition-colors">
-                      <RadioGroupItem value="hybrid" id="hybrid" />
-                      <div className="flex-1">
-                        <Label htmlFor="hybrid" className="text-neutral-300 cursor-pointer text-xs">
-                          Full Hybrid Mode
-                        </Label>
-                        <p className="text-[10px] text-neutral-500">Best accuracy (Recommended)</p>
-                      </div>
-                    </div>
-                  </div>
-                </RadioGroup>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
         {/* Behavior Settings */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -119,7 +45,7 @@ export function Settings() {
           transition={{ delay: 0.2 }}
         >
           <Card className="p-4 bg-gradient-to-br from-neutral-900/90 to-neutral-950/90 border-neutral-800">
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-red-400" />
               <h3 className="text-red-200 text-sm">Behavior & Alerts</h3>
             </div>
@@ -185,7 +111,7 @@ export function Settings() {
         >
           <Button
             variant="outline"
-            className="flex-1 border-neutral-700 text-neutral-300 hover:bg-neutral-800 text-sm"
+            className="flex-1 border-neutral-700 text-black hover:bg-neutral-800 text-sm"
           >
             Reset
           </Button>

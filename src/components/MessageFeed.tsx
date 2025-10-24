@@ -101,8 +101,13 @@ export function MessageFeed() {
           transition={{ delay: 0.1 }}
         >
           <Card className="p-4 bg-gradient-to-br from-amber-50/5 to-neutral-900/50 border-2 border-neutral-800 backdrop-blur-sm">
-            <h3 className="text-red-200 mb-3 text-sm">Analyze Message</h3>
+            <h3 className="text-red-200 text-sm">Analyze Message</h3>
             <div className="space-y-3">
+              <h3 className="text-red-200 text-sm">Message Title</h3>
+              <Textarea
+              placeholder="Message title ex:daenior-chan clan"
+              className="min-h-10 w-fit bg-neutral-950/50 border-neutral-700 text-neutral-200 placeholder:text-neutral-600 resize-none text-sm"
+              />
               <Textarea
                 placeholder="Paste message text here to analyze..."
                 className="min-h-24 bg-neutral-950/50 border-neutral-700 text-neutral-200 placeholder:text-neutral-600 resize-none text-sm"

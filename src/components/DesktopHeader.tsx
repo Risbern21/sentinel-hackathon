@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { SamuraiLogo } from './SamuraiLogo';
-import { Castle, ScrollText, BarChart3, Users, Settings } from 'lucide-react';
+import {  ScrollText, BarChart3, Users, Settings, House, User } from 'lucide-react';
 
 interface DesktopHeaderProps {
   activeTab: string;
@@ -9,11 +9,11 @@ interface DesktopHeaderProps {
 
 export function DesktopHeader({ activeTab, onTabChange }: DesktopHeaderProps) {
   const navItems = [
-    { id: 'dashboard', icon: Castle, label: 'Home' },
+    { id: 'dashboard', icon: House, label: 'Home' },
     { id: 'messages', icon: ScrollText, label: 'Scan' },
     { id: 'insights', icon: BarChart3, label: 'Intelligence' },
     { id: 'messengers', icon: Users, label: 'Clans' },
-    { id: 'settings', icon: Settings, label: 'Rules' },
+    { id: 'settings', icon: User, label: 'Profile' },
   ];
 
   return (
